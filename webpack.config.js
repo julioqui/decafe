@@ -15,6 +15,10 @@ module.exports = {
         loader: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   resolve: {
@@ -25,13 +29,13 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
-    // proxy: {
-    //   "/api/**": {
-    //     target: "http://localhost:8080",
-    //     secure: false,
-    //     changeOrigin: true,
-    //   },
-    // },
+    proxy: {
+      "/api/**": {
+        target: "http://localhost:8080",
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

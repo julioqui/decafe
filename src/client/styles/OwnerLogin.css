@@ -1,0 +1,41 @@
+.login {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #ffffff;
+}
+
+.logintitle{
+  font-family:"Roboto";
+  font-weight:bold;
+  margin-bottom: 10px;
+}
+
+#name {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#password {
+  margin-left: 3px;
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#submit-button {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #01d28e;
+  border: 1px solid #01d28e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.error-message {
+  color: red;
+}

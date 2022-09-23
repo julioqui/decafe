@@ -1,15 +1,20 @@
-import express, { Router } from "express";
+import path from "path";
+import express from "express";
+import router from "./router";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
+app.use("/images", express.static("public/images"));
+app.use("/shops/images", express.static("public/shops/images"));
+app.use(express.static(path.join(__dirname, "../client")));
 
-const exampleRoute = Router();
-exampleRoute.route("/").get((req, res) => {
-  console.log("get request...");
-  console.log(req);
-  res.status(200).send({ sample: "text" });
+app.use("/api/v1", router);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
-app.use("/data", exampleRoute);
 
 const PORT = process.env.PORT || "8080";
 app.listen(PORT, () => {
